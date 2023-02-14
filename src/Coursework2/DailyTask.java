@@ -1,7 +1,6 @@
 package Coursework2;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class DailyTask extends Task {
 
@@ -13,9 +12,9 @@ public class DailyTask extends Task {
     public boolean appearsIn(LocalDate date) {
         return date.equals(getDateTime().toLocalDate()) || date.isAfter(getDateTime().toLocalDate());
     }
+
     @Override
     public String toString() {
         return super.toString() + ". Ежедневная задача.";
     }
-
 }

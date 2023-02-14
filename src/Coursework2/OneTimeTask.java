@@ -1,8 +1,6 @@
 package Coursework2;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class OneTimeTask extends Task {
@@ -15,9 +13,9 @@ public class OneTimeTask extends Task {
 
         return Objects.equals(getDateTime().toLocalDate(), date);
     }
+
     @Override
     public String toString() {
-        return super.toString() + ". Однократная задача." ;
+        return super.toString() + ". Однократная задача.";
     }
-
 }

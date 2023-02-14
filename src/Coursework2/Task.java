@@ -16,8 +16,8 @@ public abstract class Task {
     private String description;
     private final Repeatability repeatability;
 
-    public Task(String title, Type type, String description, String dateTime, Repeatability repeatability){
-        idGenerator ++;
+    public Task(String title, Type type, String description, String dateTime, Repeatability repeatability) {
+        idGenerator++;
         this.title = title;
         this.type = type;
         this.id = idGenerator;
@@ -62,11 +62,11 @@ public abstract class Task {
         return getDateTime().toLocalTime();
     }
 
-    public void setDateTime(String dateTime) throws IncorrectArgumentException{
+    public void setDateTime(String dateTime) throws IncorrectArgumentException {
         boolean check = true;
         try {
-            this.dateTime =  LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"));
-        }catch (DateTimeParseException e) {
+            this.dateTime = LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"));
+        } catch (DateTimeParseException e) {
             check = false;
         }
         if (!check) {

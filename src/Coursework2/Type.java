@@ -2,8 +2,8 @@ package Coursework2;
 
 public enum Type {
 
-    WORK ("Рабочая задача"),
-    PERSONAL ("Личная задача");
+    WORK("Рабочая задача"),
+    PERSONAL("Личная задача");
 
     private final String value;
 
@@ -13,10 +13,5 @@ public enum Type {
 
     public String getValue() {
         return value;
-    }
-
-    @Override
-    public String toString() {
-        return "Тип задачи: " + getValue ();
     }
 }

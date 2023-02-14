@@ -2,7 +2,6 @@ package Coursework2;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
 
 public class YearlyTask extends Task {
 
@@ -14,6 +13,7 @@ public class YearlyTask extends Task {
         Period period = Period.between(getDateTime().toLocalDate(), date);
         return period.getYears() >= 0 && period.getMonths() == 0 && period.getDays() == 0;
     }
+
     @Override
     public String toString() {
         return super.toString() + ". Ежегодная задача.";

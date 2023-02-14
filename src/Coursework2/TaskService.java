@@ -30,6 +30,7 @@ public class TaskService {
             throw new TaskNotFoundException("Задача с указанным id не существует");
         }
     }
+
     public static void listRemovedTasks() {
         System.out.println("Список помещённых в архив задач: ");
         removedTasks.forEach(System.out::println);
@@ -37,23 +38,25 @@ public class TaskService {
             System.out.println("В архиве отсутствуют удалённые задачи");
         }
     }
+
     public static void taskList() {
         System.out.println("Список текущих задач: ");
         for (Map.Entry<Integer, Task> taskMap : taskMap.entrySet()) {
             System.out.println(taskMap.getKey() + " " + taskMap.getValue());
         }
     }
+
     public static void getAllByDate(LocalDate date) throws TaskNotFoundException {
         for (Map.Entry<Integer, Task> taskMap : taskMap.entrySet()) {
             LocalDate taskDate = taskMap.getValue().getDateTime().toLocalDate();
             if (taskDate.equals(date)) {
                 System.out.println(taskMap.getKey() + " " + taskMap.getValue());
-            }
-            else if (date.isAfter(taskDate) && taskMap.getValue().appearsIn(date)) {
+            } else if (date.isAfter(taskDate) && taskMap.getValue().appearsIn(date)) {
                 System.out.println(taskMap.getKey() + " " + taskMap.getValue());
             } else throw new TaskNotFoundException("На указанную дату задачи не запланированы");
         }
     }
+
     public static int checkId(Scanner scanner) throws IncorrectArgumentException {
         int intId;
         try {
