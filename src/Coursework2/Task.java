@@ -62,14 +62,11 @@ public abstract class Task {
         return getDateTime().toLocalTime();
     }
 
+
     public void setDateTime(String dateTime) throws IncorrectArgumentException {
-        boolean check = true;
         try {
             this.dateTime = LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"));
         } catch (DateTimeParseException e) {
-            check = false;
-        }
-        if (!check) {
             throw new IncorrectArgumentException("Некорректно указана дата, добавьте задачу повторно");
         }
     }

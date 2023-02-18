@@ -21,11 +21,12 @@ public class TaskService {
         }
     }
 
-    public static void removeTask(int idNum) throws TaskNotFoundException {
-        Task task = taskMap.get(idNum);
-        removedTasks.add(task);
-        if (taskMap.values().removeIf(i -> i.getId() == idNum)) {
-            System.out.println("Задача под номером " + idNum + " перемещена в архив");
+    public static void removeTask(int id) throws TaskNotFoundException {
+        Task task = taskMap.get(id);
+        if (taskMap.get(id) != null) {
+            task = taskMap.remove(id);
+            removedTasks.add(task);
+            System.out.println("Задача под номером " + id + " перемещена в архив");
         } else {
             throw new TaskNotFoundException("Задача с указанным id не существует");
         }
